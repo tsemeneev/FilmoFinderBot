@@ -6,7 +6,7 @@ from main import parser
 from keyboards import get_seasons_keyboard
 
 
-bot = Bot(token='YOUR_BOT_TOKEN')
+bot = Bot(token='6652870924:AAE-LoxHWVBZxu1bNv8BZD0VnTd7j6tOVhI')
 dp = Dispatcher(bot)
 
 logging.basicConfig(level=logging.INFO,
@@ -16,6 +16,11 @@ logging.basicConfig(level=logging.INFO,
 
 @dp.message_handler(commands=['start'])
 async def start_handler(message: types.Message):
+    """
+    A message handler function that handles the 'start' command. 
+    It takes a types.Message object as a parameter and returns nothing.
+    The function answers the message with the text "Привет! Введи название фильма, а я его поищу".
+    """
     await message.answer("Привет! Введи название фильма, а я его поищу")
 
 

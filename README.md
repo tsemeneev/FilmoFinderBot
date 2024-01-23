@@ -24,6 +24,7 @@
     . venv/bin/activate
 ```
 
+
 3. Установите зависимости:
 ```bash
     pip install -r requirements.txt
