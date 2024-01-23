@@ -23,7 +23,7 @@ def get_seasons(series, seasons):
             soup = BeautifulSoup(season_page.text, 'html.parser')
            
             url = soup.find('a', {'itemprop': 'url'}).get('href')
-            fist_episode = requests.get('https://hlamer.ru/' + url)
+            fist_episode = requests.get('https://bossfilm.ru/' + url)
             soup = BeautifulSoup(fist_episode.text, 'html.parser')
             url = soup.find('link', {'itemprop': 'embedUrl'}).get('href')
 
@@ -40,7 +40,7 @@ def get_seasons(series, seasons):
 
         soup = BeautifulSoup(season_page.text, 'html.parser')
         url = soup.find('a', {'itemprop': 'url'}).get('href')
-        fist_episode = requests.get('https://hlamer.ru/' + url)
+        fist_episode = requests.get('https://bossfilm.ru/' + url)
         soup = BeautifulSoup(fist_episode.text, 'html.parser')
         url = soup.find('link', {'itemprop': 'embedUrl'}).get('href')
         series['seasons'].append({
@@ -86,7 +86,7 @@ def is_series(driver, poster):
 
     try:
 
-        if len(seasons) > 2 and 'https://hlamer.ru/' in seasons[2].find_element(By.TAG_NAME,
+        if len(seasons) > 2 and 'https://bossfilm.ru/' in seasons[2].find_element(By.TAG_NAME,
                                                                              'a').get_attribute(
             'href'):
             # если много сезонов, и они скрыты
@@ -122,7 +122,7 @@ class Parser:
         driver = webdriver.Chrome(options=self.options)
 
         try:
-            driver.get('https://hlamer.ru/')
+            driver.get('https://bossfilm.ru/')
             search_input = driver.find_element(By.ID, 'search')
             search_input.send_keys(film_name)
             search_input.send_keys(Keys.ENTER)
